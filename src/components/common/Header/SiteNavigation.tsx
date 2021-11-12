@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const SiteNavigatorWrapper = styled.div`
+const SiteNavigationWrapper = styled.div`
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -10,17 +10,17 @@ const SiteNavigatorWrapper = styled.div`
     font-weight: 700;
 `;
 
-const ClassNavigator = styled.span`
+const ClassNavigation = styled.span`
     color: var(--color-orange500);
 `;
 
-const SiteNavigator: FunctionComponent = () => {
+const SiteNavigation: FunctionComponent = () => {
     return (
-        <SiteNavigatorWrapper>
-            <ClassNavigator>클래스</ClassNavigator>
+        <SiteNavigationWrapper>
+            <ClassNavigation>클래스</ClassNavigation>
             <span>스토어</span>
-        </SiteNavigatorWrapper>
+        </SiteNavigationWrapper>
     );
 };
 
-export default SiteNavigator;
+export default SiteNavigation;

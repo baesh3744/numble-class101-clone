@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const UnAuthNavigatorWrapper = styled.div`
+const UnAuthNavigationWrapper = styled.div`
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -11,14 +11,14 @@ const UnAuthNavigatorWrapper = styled.div`
     letter-spacing: -0.15px;
 `;
 
-const UnAuthNavigator: FunctionComponent = () => {
+const UnAuthNavigation: FunctionComponent = () => {
     return (
-        <UnAuthNavigatorWrapper>
+        <UnAuthNavigationWrapper>
             <span>크리에이터 지원</span>
             <span>기업교육</span>
             <span>로그인</span>
-        </UnAuthNavigatorWrapper>
+        </UnAuthNavigationWrapper>
     );
 };
 
-export default UnAuthNavigator;
+export default UnAuthNavigation;

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import Search from "./Search";
-import SiteNavigator from "./SiteNavigator";
-import UnAuthNavigator from "./UnAuthNavigator";
+import SiteNavigation from "./SiteNavigation";
+import UnAuthNavigation from "./UnAuthNavigation";
 import styled from "styled-components";
 
 const HeaderWrapper = styled.div`
@@ -24,9 +24,9 @@ const Header: FunctionComponent = () => {
     return (
         <HeaderWrapper>
             <Logo>CLASS1O1</Logo>
-            <SiteNavigator />
+            <SiteNavigation />
             <Search />
-            <UnAuthNavigator />
+            <UnAuthNavigation />
         </HeaderWrapper>
     );
 };
