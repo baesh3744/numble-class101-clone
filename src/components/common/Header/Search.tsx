@@ -1,3 +1,4 @@
+import { Colors } from "@class101/ui";
 import { FunctionComponent } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import styled from "styled-components";
@@ -11,7 +12,7 @@ const Input = styled.input`
     width: 100%;
     border: none;
     border-radius: 30px;
-    background-color: var(--color-gray100);
+    background-color: ${Colors.gray100};
     padding: 13px 60px 13px 16px;
     line-height: 20px;
     font-size: 14px;

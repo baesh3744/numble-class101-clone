@@ -31,12 +31,6 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         padding: 0;
     }
-
-    :root {
-        --color-gray100: #f8f8f8;
-
-        --color-orange500: #FF5600;
-    }
 `;
 
 export default GlobalStyle;

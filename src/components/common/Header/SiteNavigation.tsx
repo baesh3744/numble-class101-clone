@@ -1,3 +1,4 @@
+import { Colors } from "@class101/ui";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
 
@@ -11,7 +12,7 @@ const SiteNavigationWrapper = styled.div`
 `;
 
 const ClassNavigation = styled.span`
-    color: var(--color-orange500);
+    color: ${Colors.orange500};
 `;
 
 const SiteNavigation: FunctionComponent = () => {
