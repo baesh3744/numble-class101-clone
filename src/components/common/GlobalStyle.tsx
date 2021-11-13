@@ -25,6 +25,13 @@ const GlobalStyle = createGlobalStyle`
             monospace;
     }
 
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
     :root {
         --color-gray100: #f8f8f8;
 
