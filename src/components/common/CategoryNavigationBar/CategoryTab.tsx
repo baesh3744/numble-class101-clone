@@ -1,7 +1,7 @@
-import CategoryTooltipContainer from "./Tooltip";
 import { DropDownIcon } from "@class101/ui";
 import { FunctionComponent } from "react";
 import Tab from "./Tab";
+import Tooltip from "./Tooltip";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -20,19 +20,19 @@ const CategoryTab: FunctionComponent = () => {
         setIsOpen(true);
     };
 
-    const handleMouseOut = () => {
+    const closeTooltip = () => {
         setIsOpen(false);
     };
 
     return (
         <CategoryTabWrapper
             onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
+            onMouseOut={closeTooltip}
         >
             <CategoryTabButton bold={true}>
                 전체 카테고리 <DropDownIcon />
             </CategoryTabButton>
-            <CategoryTooltipContainer isOpen={isOpen} />
+            <Tooltip isOpen={isOpen} closeTooltip={closeTooltip} />
         </CategoryTabWrapper>
     );
 };

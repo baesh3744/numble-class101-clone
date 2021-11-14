@@ -7,9 +7,10 @@ import styled from "styled-components";
 
 interface TooltipProps {
     isOpen: boolean;
+    closeTooltip: () => void;
 }
 
-const TooltipWrapper = styled.div<TooltipProps>`
+const TooltipWrapper = styled.div<{ isOpen: boolean }>`
     display: ${(props) => (props.isOpen ? "flex" : "none")};
     position: absolute;
     left: -20px;
@@ -17,7 +18,7 @@ const TooltipWrapper = styled.div<TooltipProps>`
     padding-top: 20px;
 `;
 
-const Tooltip: FunctionComponent<TooltipProps> = ({ isOpen }) => {
+const Tooltip: FunctionComponent<TooltipProps> = ({ isOpen, closeTooltip }) => {
     const [secondCategories, setSecondCategories] = useState<Category[]>([]);
     const [highlight, setHighlight] = useState<boolean>(false);
 
@@ -30,11 +31,13 @@ const Tooltip: FunctionComponent<TooltipProps> = ({ isOpen }) => {
             <FirstTooltip
                 categories={FIRST_CATEGORIES}
                 highlight={highlight}
+                closeTooltip={closeTooltip}
                 setSecondCategories={setSecondCategories}
             />
             {secondCategories.length !== 0 && (
                 <SecondTooltip
                     categories={secondCategories}
+                    closeTooltip={closeTooltip}
                     setHighlight={setHighlight}
                 />
             )}

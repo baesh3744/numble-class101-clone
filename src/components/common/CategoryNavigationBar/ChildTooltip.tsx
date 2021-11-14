@@ -1,4 +1,3 @@
-import { ChevronRightIcon, Colors } from "@class101/ui";
 import {
     Dispatch,
     FunctionComponent,
@@ -7,6 +6,8 @@ import {
     useState,
 } from "react";
 
+import CategoryItem from "./CategoryItem";
+import { Colors } from "@class101/ui";
 import { SECOND_CATEGORIES } from "assets/constants/Categories";
 import styled from "styled-components";
 
@@ -17,6 +18,7 @@ export interface Category {
 
 interface ChildTooltipProps {
     categories: Category[];
+    closeTooltip: () => void;
 }
 
 interface FirstTooltipProps extends ChildTooltipProps {
@@ -49,31 +51,10 @@ const RootCategory = styled.h2`
     padding-left: 20px;
 `;
 
-const ChildCategory = styled.h3`
-    font-size: 14px;
-    line-height: 18px;
-    padding: 8px 8px 8px 20px;
-    cursor: pointer;
-    border-radius: 2px;
-
-    &:hover {
-        background-color: ${Colors.gray100};
-    }
-`;
-
-const HighlightedCategory = styled(ChildCategory)`
-    font-weight: 700;
-`;
-
-const StyledChevronRightIcon = styled(ChevronRightIcon)`
-    height: 14px;
-    width: 14px;
-    float: right;
-`;
-
 export const FirstTooltip: FunctionComponent<FirstTooltipProps> = ({
     categories,
     highlight,
+    closeTooltip,
     setSecondCategories,
 }) => {
     const [hovered, setHovered] = useState<string>("");
@@ -92,18 +73,13 @@ export const FirstTooltip: FunctionComponent<FirstTooltipProps> = ({
             {categories.map(({ name, children }) => (
                 <CategoryGroupWrapper key={name} onMouseOver={handleMouseOver}>
                     <RootCategory>{name}</RootCategory>
-                    {children.map((childCategory) =>
-                        highlight && hovered === childCategory ? (
-                            <HighlightedCategory key={childCategory}>
-                                {childCategory}
-                                <StyledChevronRightIcon />
-                            </HighlightedCategory>
-                        ) : (
-                            <ChildCategory key={childCategory}>
-                                {childCategory}
-                            </ChildCategory>
-                        )
-                    )}
+                    {children.map((childCategory) => (
+                        <CategoryItem
+                            category={childCategory}
+                            highlight={highlight && hovered === childCategory}
+                            closeTooltip={closeTooltip}
+                        />
+                    ))}
                 </CategoryGroupWrapper>
             ))}
         </ChildTooltipWrapper>
@@ -112,6 +88,7 @@ export const FirstTooltip: FunctionComponent<FirstTooltipProps> = ({
 
 export const SecondTooltip: FunctionComponent<SecondTooltipProps> = ({
     categories,
+    closeTooltip,
     setHighlight,
 }) => {
     const handleMouseOver = () => {
@@ -131,9 +108,10 @@ export const SecondTooltip: FunctionComponent<SecondTooltipProps> = ({
                 <CategoryGroupWrapper key={name}>
                     <RootCategory>{name}</RootCategory>
                     {children.map((childCategory) => (
-                        <ChildCategory key={childCategory}>
-                            {childCategory}
-                        </ChildCategory>
+                        <CategoryItem
+                            category={childCategory}
+                            closeTooltip={closeTooltip}
+                        />
                     ))}
                 </CategoryGroupWrapper>
             ))}
