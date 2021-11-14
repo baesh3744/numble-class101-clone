@@ -1,6 +1,7 @@
-import { Colors, DropDownIcon } from "@class101/ui";
-
+import CategoryTab from "./CategoryTab";
+import { Colors } from "@class101/ui";
 import { FunctionComponent } from "react";
+import Tab from "./Tab";
 import styled from "styled-components";
 
 const CategoryNavigationBarWrapper = styled.div`
@@ -11,33 +12,6 @@ const CategoryNavigationBarWrapper = styled.div`
     width: 100%;
     max-width: 1176px;
     margin: auto;
-`;
-
-const Tab = styled.button<{ bold: boolean }>`
-    position: relative;
-    font-size: 16px;
-    font-weight: ${(props) => (props.bold ? "700" : "400")};
-    letter-spacing: -0.3px;
-    line-height: 24px;
-    padding: 8px 0 20px;
-
-    &:hover {
-        font-weight: 700;
-    }
-
-    &:hover::after {
-        position: absolute;
-        content: "";
-        bottom: 12px;
-        left: 0;
-        height: 2px;
-        width: 100%;
-        background-color: ${Colors.black};
-    }
-`;
-
-const CategoryTab = styled(Tab)`
-    display: flex;
 `;
 
 const NewTab = styled(Tab)`
@@ -58,9 +32,7 @@ const Divider = styled.div`
 const CategoryNavigationBar: FunctionComponent = () => {
     return (
         <CategoryNavigationBarWrapper>
-            <CategoryTab bold={true}>
-                전체 카테고리 <DropDownIcon />
-            </CategoryTab>
+            <CategoryTab />
             <NewTab bold={true}>
                 11월 가입혜택
                 <NewBadge />
