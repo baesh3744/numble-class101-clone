@@ -75,6 +75,7 @@ export const FirstTooltip: FunctionComponent<FirstTooltipProps> = ({
                     <RootCategory>{name}</RootCategory>
                     {children.map((childCategory) => (
                         <CategoryItem
+                            key={childCategory}
                             category={childCategory}
                             highlight={highlight && hovered === childCategory}
                             closeTooltip={closeTooltip}
@@ -109,6 +110,7 @@ export const SecondTooltip: FunctionComponent<SecondTooltipProps> = ({
                     <RootCategory>{name}</RootCategory>
                     {children.map((childCategory) => (
                         <CategoryItem
+                            key={childCategory}
                             category={childCategory}
                             closeTooltip={closeTooltip}
                         />

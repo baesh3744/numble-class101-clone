@@ -23,7 +23,7 @@ export const SECOND_CATEGORIES = [
     },
     {
         name: "드로잉",
-        children: ["펜 · 연필", "수채화", "오일파스텔", "캘리그라피"],
+        children: ["펜 · 연필", "수채화", "오일파스텔"],
     },
     {
         name: "공예",
