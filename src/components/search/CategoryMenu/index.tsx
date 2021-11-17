@@ -19,6 +19,7 @@ interface highlightProps {
 }
 
 const CategoryMenuWrapper = styled.div`
+    min-width: 180px;
     width: 180px;
 `;
 
