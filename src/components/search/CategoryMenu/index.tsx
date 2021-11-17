@@ -19,7 +19,6 @@ interface highlightProps {
 }
 
 const CategoryMenuWrapper = styled.div`
-    min-width: 180px;
     width: 180px;
 `;
 
@@ -59,8 +58,11 @@ const ChildMenu: FunctionComponent<ChildMenuProps> = ({
     return (
         <ChildMenuWrapper>
             {categories.map((category) => (
-                <Link key={category} to={`/search?category=${category}`}>
-                    <ChildCategory highlight={category === searchedCategory}>
+                <Link to={`/search?category=${category}`}>
+                    <ChildCategory
+                        key={category}
+                        highlight={category === searchedCategory}
+                    >
                         {category}
                     </ChildCategory>
                 </Link>
