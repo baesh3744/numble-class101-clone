@@ -1,5 +1,6 @@
 import { ChevronRightIcon, Colors } from "@class101/ui";
 
+import { CATEGORY_EN2KO } from "assets/constants/Categories";
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -40,12 +41,14 @@ const CategoryItem: FunctionComponent<CategoryItemProps> = ({
     return (
         <Link to={`/search?category=${category}`} onClick={closeTooltip}>
             {highlight ? (
-                <HighlightedItem key={category}>
-                    {category}
+                <HighlightedItem key={category} data-category={category}>
+                    {CATEGORY_EN2KO[category]}
                     <StyledChevronRightIcon />
                 </HighlightedItem>
             ) : (
-                <Item key={category}>{category}</Item>
+                <Item key={category} data-category={category}>
+                    {CATEGORY_EN2KO[category]}
+                </Item>
             )}
         </Link>
     );

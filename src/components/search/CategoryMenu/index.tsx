@@ -1,9 +1,9 @@
+import { CATEGORY_EN2KO, SECOND_CATEGORIES } from "assets/constants/Categories";
 import { Fragment, FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 
 import { Colors } from "@class101/ui";
 import { Link } from "react-router-dom";
-import { SECOND_CATEGORIES } from "assets/constants/Categories";
 
 interface CategoryMenuProps {
     searchedCategory: string;
@@ -63,7 +63,7 @@ const ChildMenu: FunctionComponent<ChildMenuProps> = ({
                         key={category}
                         highlight={category === searchedCategory}
                     >
-                        {category}
+                        {CATEGORY_EN2KO[category]}
                     </ChildCategory>
                 </Link>
             ))}
@@ -85,7 +85,7 @@ const CategoryMenu: FunctionComponent<CategoryMenuProps> = ({
                     <Fragment key={name}>
                         <Link to={`/search?category=${name}`}>
                             <Category highlight={name === searchedCategory}>
-                                {name}
+                                {CATEGORY_EN2KO[name]}
                             </Category>
                         </Link>
 

@@ -1,3 +1,4 @@
+import { CATEGORY_EN2KO, SECOND_CATEGORIES } from "assets/constants/Categories";
 import {
     Dispatch,
     FunctionComponent,
@@ -8,7 +9,6 @@ import {
 
 import CategoryItem from "./CategoryItem";
 import { Colors } from "@class101/ui";
-import { SECOND_CATEGORIES } from "assets/constants/Categories";
 import styled from "styled-components";
 
 export interface Category {
@@ -61,18 +61,20 @@ export const FirstTooltip: FunctionComponent<FirstTooltipProps> = ({
 
     const handleMouseOver = (event: MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
-        const hover = target.innerText;
-        setHovered(hover);
-        setSecondCategories(
-            SECOND_CATEGORIES.filter((category) => category.name === hover)
-        );
+        if (target.dataset.category) {
+            const hover = target.dataset.category;
+            setHovered(hover);
+            setSecondCategories(
+                SECOND_CATEGORIES.filter((category) => category.name === hover)
+            );
+        }
     };
 
     return (
         <ChildTooltipWrapper>
             {categories.map(({ name, children }) => (
                 <CategoryGroupWrapper key={name} onMouseOver={handleMouseOver}>
-                    <RootCategory>{name}</RootCategory>
+                    <RootCategory>{CATEGORY_EN2KO[name]}</RootCategory>
                     {children.map((childCategory) => (
                         <CategoryItem
                             key={childCategory}
@@ -107,7 +109,7 @@ export const SecondTooltip: FunctionComponent<SecondTooltipProps> = ({
         >
             {categories.map(({ name, children }) => (
                 <CategoryGroupWrapper key={name}>
-                    <RootCategory>{name}</RootCategory>
+                    <RootCategory>{CATEGORY_EN2KO[name]}</RootCategory>
                     {children.map((childCategory) => (
                         <CategoryItem
                             key={childCategory}

@@ -1,49 +1,76 @@
 export const FIRST_CATEGORIES = [
     {
-        name: "크리에이티브",
-        children: [
-            "디지털 드로잉",
-            "드로잉",
-            "공예",
-            "베이킹 · 디저트",
-            "사진 · 영상",
-        ],
+        name: "creative",
+        children: ["digital", "drawing", "crafts", "dessert", "media"],
     },
     {
-        name: "커리어",
-        children: ["디자인", "글쓰기"],
+        name: "career",
+        children: ["design", "writing"],
     },
 ];
 
 export const SECOND_CATEGORIES = [
-    // 크리에이티브
+    // creative
     {
-        name: "디지털 드로잉",
-        children: ["캐릭터 드로잉", "캘리그라피"],
+        name: "digital",
+        children: ["character", "calligraphy"],
     },
     {
-        name: "드로잉",
-        children: ["펜 · 연필", "수채화", "오일파스텔"],
+        name: "drawing",
+        children: ["pen", "watercolor", "oilpastel"],
     },
     {
-        name: "공예",
-        children: ["패브릭 공예", "비누 · 캔들 · 향", "플라워 공예"],
+        name: "crafts",
+        children: ["fabric", "soap", "flower"],
     },
     {
-        name: "베이킹 · 디저트",
-        children: ["케이크", "비건"],
+        name: "dessert",
+        children: ["cake", "vegan"],
     },
     {
-        name: "사진 · 영상",
-        children: ["사진"],
+        name: "media",
+        children: ["photo"],
     },
-    // 커리어
+    // career
     {
-        name: "디자인",
-        children: ["브랜드 디자인"],
+        name: "design",
+        children: ["brandDesign"],
     },
     {
-        name: "글쓰기",
-        children: ["스토리텔링"],
+        name: "writing",
+        children: ["storytelling"],
     },
 ];
+
+export const CATEGORY_EN2KO: { [key: string]: string } = {
+    creative: "크리에이티브",
+
+    digital: "디지털 드로잉",
+    character: "캐릭터 드로잉",
+    calligraphy: "캘리그라피",
+
+    drawing: "드로잉",
+    pen: "펜 · 연필",
+    watercolor: "수채화",
+    oilpastel: "오일파스텔",
+
+    crafts: "공예",
+    fabric: "패브릭 공예",
+    soap: "비누 · 캔들 · 향",
+    flower: "플라워 공예",
+
+    dessert: "베이킹 · 디저트",
+    cake: "케이크",
+    vegan: "비건",
+
+    media: "사진 · 영상",
+    photo: "사진",
+
+    career: "커리어",
+
+    design: "디자인",
+    brandDesign: "브랜드 디자인",
+
+    writing: "글쓰기",
+    storytelling: "스토리텔링",
+};
