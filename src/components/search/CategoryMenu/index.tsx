@@ -58,11 +58,8 @@ const ChildMenu: FunctionComponent<ChildMenuProps> = ({
     return (
         <ChildMenuWrapper>
             {categories.map((category) => (
-                <Link to={`/search?category=${category}`}>
-                    <ChildCategory
-                        key={category}
-                        highlight={category === searchedCategory}
-                    >
+                <Link key={category} to={`/search?category=${category}`}>
+                    <ChildCategory highlight={category === searchedCategory}>
                         {CATEGORY_EN2KO[category]}
                     </ChildCategory>
                 </Link>
