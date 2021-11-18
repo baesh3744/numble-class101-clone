@@ -14,8 +14,10 @@ const TooltipWrapper = styled.div<{ isOpen: boolean }>`
     display: ${(props) => (props.isOpen ? "flex" : "none")};
     position: absolute;
     left: -20px;
+    background-color: ${Colors.white};
     border: 1px solid ${Colors.gray200};
     padding-top: 20px;
+    z-index: 100;
 `;
 
 const Tooltip: FunctionComponent<TooltipProps> = ({ isOpen, closeTooltip }) => {
