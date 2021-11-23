@@ -1,8 +1,7 @@
 import CategoryMenu from "components/search/CategoryMenu";
-import ClassList from "components/search/ClassList";
+import ClassContents from "components/search/ClassContents";
 import { FunctionComponent } from "react";
 import NotFoundPage from "./NotFoundPage";
-import { SECOND_CATEGORIES } from "assets/constants/Categories";
 import queryString from "query-string";
 import styled from "styled-components";
 import { useLocation } from "react-router";
@@ -25,13 +24,10 @@ const SearchPage: FunctionComponent = () => {
         return <NotFoundPage />;
     }
 
-    const isRootCategory =
-        SECOND_CATEGORIES.filter(({ name }) => name === category).length !== 0;
-
     return (
         <SearchPageWrapper>
             <CategoryMenu searchedCategory={category} />
-            <ClassList isRootCategory={isRootCategory} />
+            <ClassContents category={category} />
         </SearchPageWrapper>
     );
 };

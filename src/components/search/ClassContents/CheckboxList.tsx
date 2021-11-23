@@ -1,15 +1,17 @@
 import { Button, Colors, DropDownIcon, Modal } from "@class101/ui";
 
 import { FunctionComponent } from "react";
+import { SECOND_CATEGORIES } from "assets/constants/Categories";
 import styled from "styled-components";
 
 interface CheckboxListProps {
-    isRootCategory: boolean;
+    category: string;
 }
 
 const CheckboxListWrapper = styled.div`
     display: flex;
     gap: 14px;
+    margin-bottom: 40px;
 `;
 
 const CheckboxButton = styled(Button)`
@@ -21,9 +23,10 @@ const CheckboxButton = styled(Button)`
     }
 `;
 
-const CheckboxList: FunctionComponent<CheckboxListProps> = ({
-    isRootCategory,
-}) => {
+const CheckboxList: FunctionComponent<CheckboxListProps> = ({ category }) => {
+    const isRootCategory =
+        SECOND_CATEGORIES.filter(({ name }) => name === category).length !== 0;
+
     return (
         <CheckboxListWrapper>
             <CheckboxButton>바로 수강</CheckboxButton>
