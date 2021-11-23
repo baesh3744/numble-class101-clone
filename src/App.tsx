@@ -1,12 +1,15 @@
+import AppRoutes from "components/common/AppRoutes";
+import { BrowserRouter } from "react-router-dom";
 import { Fragment } from "react";
 import GlobalStyle from "components/common/GlobalStyle";
-import Router from "components/common/Router";
 
 function App() {
     return (
         <Fragment>
             <GlobalStyle />
-            <Router />
+            <BrowserRouter>
+                <AppRoutes />
+            </BrowserRouter>
         </Fragment>
     );
 }
